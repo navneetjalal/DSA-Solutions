@@ -1,7 +1,7 @@
 class Solution {
 public:
     long long minSumSquareDiff(vector<int>& nums1, vector<int>& nums2, int k1, int k2) {
-        long long ans=0;
+        long ans=0;
         int k=k1+k2;
 
         vector<int>vec(100001,0);
