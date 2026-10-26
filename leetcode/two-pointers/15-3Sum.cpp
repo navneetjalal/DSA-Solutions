@@ -1,18 +1,20 @@
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
-        set<vector<int>> sett;
         vector<vector<int>> ans;
         sort(nums.begin(),nums.end());
         for(int i=0;i<nums.size();i++){
-            int sec=i+1, third=nums.size()-1;
+            if(i>0 && nums[i]==nums[i-1]){
+                continue;
+            }
+            int sec=i+1,third=nums.size()-1;
             while(sec<third){
                 if(nums[i]+nums[sec]+nums[third]==0){
-                    if(sett.find({nums[i],nums[sec],nums[third]})==sett.end()){
-                        ans.push_back({nums[i],nums[sec],nums[third]});
-                        sett.insert({nums[i],nums[sec],nums[third]});
+                    ans.push_back({nums[i],nums[sec],nums[third]});
+                    sec++,third--;
+                    while(sec<third&&nums[sec]==nums[sec-1]){
+                        sec++;
                     }
-                    sec++;
                 }
                 else if(nums[i]+nums[sec]+nums[third]>0){
                     third--;
