@@ -13,15 +13,15 @@ public:
                 }
                 int low=j+1,high=nums.size()-1;
                 while(low<high){
-                    long long sum=(long long)nums[i]+(long long)nums[j]+(long long)nums[low]+(long long)nums[high];
-                    if(sum==target){
+                    // long long sum=(long long)nums[i]+(long long)nums[j]+(long long)nums[low]+(long long)nums[high];
+                    if((long long)nums[i]+(long long)nums[j]+(long long)nums[low]+(long long)nums[high]==target){
                         ans.push_back({nums[i],nums[j],nums[low],nums[high]});
                         low++,high--;
                         while(low<high&& nums[low]==nums[low-1]){
                             low++;
                         }
                     }
-                    else if(sum<target){
+                    else if((long long)nums[i]+(long long)nums[j]+(long long)nums[low]+(long long)nums[high]<target){
                         low++;
                     }
                     else{
